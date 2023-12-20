@@ -1,7 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
+  const { user, logOutUser } = useAuth();
+
   const navItem = (
     <>
       <li>
@@ -10,9 +13,20 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="signUp" className={`hover:border-b-2`}>
-          SignUp
+        <NavLink to="/dashboard" className={`hover:border-b-2`}>
+          Dashboard
         </NavLink>
+      </li>
+      <li>
+        {user ? (
+          <button onClick={logOutUser} className={`hover:border-b-2`}>
+            Log Out
+          </button>
+        ) : (
+          <NavLink to="signUp" className={`hover:border-b-2`}>
+            SignUp
+          </NavLink>
+        )}
       </li>
       <li>
         <NavLink to="bestForWhom" className={`hover:border-b-2`}>
@@ -50,15 +64,22 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="btn hidden md:flex btn-ghost text-xl">
-            <img src={logo} alt="Logo" className="h-12 w-12"/>
+            <img src={logo} alt="Logo" className="h-12 w-12" />
           </Link>
+          {user? <p className="hidden text-blue-300 md:flex text-xl ml-3">
+            Welcome to {user?.displayName} !
+          </p> : " "}
         </div>
-        <div className="navbar-center"></div>
+        <div className="navbar-center">
+          {user ? <p className="text-xs md:text-xl md:hidden">
+            Welcome to {user?.displayName} !
+          </p> : " "}
+        </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="flex gap-6 px-1">{navItem}</ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl md:hidden">
-        <img src={logo} alt="Logo" className="h-12 w-12"/>
+          <img src={logo} alt="Logo" className="h-8 w-8" />
         </Link>
       </div>
     </div>
