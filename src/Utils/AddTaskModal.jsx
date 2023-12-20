@@ -2,15 +2,33 @@ import { useForm } from "react-hook-form";
 import Button from "@mui/material/Button";
 import Loader from "./Loader";
 import { useState } from "react";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import useAuth from "../Hooks/useAuth";
 
 // eslint-disable-next-line react/prop-types
 const AddTaskModal = ({ id }) => {
   const [loading, setLoading] = useState(false);
-  const { register, handleSubmit } = useForm();
+  const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    setLoading(true)
-    console.log(data)
-    setLoading(false)
+    setLoading(true);
+    const toDos = {
+      email: user?.email,
+      title: data.title,
+      description: data.description,
+      date: data.date,
+      priority: data.priority
+    };
+    axiosSecure.post("/toDos", toDos).then((res) => {
+      if (res.data.insertedId) {
+        toast("Task added Successfully");
+      }
+    });
+    setLoading(false);
+    reset();
   };
 
   return (
@@ -24,7 +42,9 @@ const AddTaskModal = ({ id }) => {
           </form>
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <h1 className="text-center text-2xl font-semibold mb-2">Add Task</h1>
+              <h1 className="text-center text-2xl font-semibold mb-2">
+                Add Task
+              </h1>
               <div className="relative z-0 w-full mb-5 group">
                 <input
                   {...register("title")}
@@ -59,7 +79,10 @@ const AddTaskModal = ({ id }) => {
               <label className="block mb-1 mt-3 text-sm font-medium text-gray-900 dark:text-white">
                 Priority
               </label>
-              <select className="px-4 py-2 rounded-md bg-gray-700 w-full mb-4" {...register("priority")}>
+              <select
+                className="px-4 py-2 rounded-md bg-gray-700 w-full mb-4"
+                {...register("priority")}
+              >
                 <option value="first">First</option>
                 <option value="second">Second</option>
                 <option value="third">Third</option>
@@ -67,7 +90,7 @@ const AddTaskModal = ({ id }) => {
               <Button
                 type="submit"
                 variant="contained"
-                sx={{ width: "150px", display: "block", margin: 'auto' }}
+                sx={{ width: "150px", display: "block", margin: "auto" }}
               >
                 {loading ? (
                   <Loader h="25" w="25" color="white"></Loader>

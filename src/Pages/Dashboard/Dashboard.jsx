@@ -1,6 +1,15 @@
+import useAuth from "../../Hooks/useAuth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import DashboardNav from "./DashboardNav";
 
 const Dashboard = () => {
+    const axiosSecure = useAxiosSecure();
+    const {user} = useAuth();
+
+    axiosSecure(`/toDos?email=${user?.email}`)
+    .then(res=> {
+        console.log(res.data);
+    })
   return (
     <div>
       <DashboardNav></DashboardNav>
@@ -9,7 +18,7 @@ const Dashboard = () => {
           <div className="divider divider-primary px-2 text-2xl">To-do</div>
           <div>
             <ul>
-                
+
             </ul>
           </div>
         </div>
