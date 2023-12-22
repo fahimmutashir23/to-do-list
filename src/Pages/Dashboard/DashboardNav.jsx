@@ -12,7 +12,7 @@ const DashboardNav = () => {
             onClick={() => document.getElementById("my_modal_1").showModal()}
             className="bg-blue-500 px-2 rounded-md text-black cursor-pointer hover:bg-green-700"
           >
-            New
+            Create
           </li>
         </ul>
       </div>

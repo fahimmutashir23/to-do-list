@@ -5,6 +5,8 @@ import SignUp from "../Pages/SignUp/SignUp";
 import SignIn from "../Pages/SignIn/SignIn";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 
 const Router = createBrowserRouter([
@@ -26,7 +28,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/dashboard",
-                element: <PrivetRoute><Dashboard/></PrivetRoute>
+                element: <PrivetRoute><DndProvider backend={HTML5Backend}><Dashboard/></DndProvider></PrivetRoute>
             },
         ]
     }

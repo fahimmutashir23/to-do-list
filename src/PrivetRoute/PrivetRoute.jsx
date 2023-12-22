@@ -6,10 +6,10 @@ import toast from "react-hot-toast";
 
 // eslint-disable-next-line react/prop-types
 const PrivetRoute = ({children}) => {
-    const {user, loading} = useAuth();
+    const {user, loader} = useAuth();
     const location = useLocation()
 
-    if(loading){
+    if(loader){
         return <Loader h='40' w='40' color='white' align='center'></Loader>
     } 
     else if(user){
