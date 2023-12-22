@@ -4,7 +4,11 @@ import AddTaskModal from "../../Utils/AddTaskModal";
 const DashboardNav = () => {
   const { user } = useAuth();
   return (
-    <div className="bg-black rounded-md p-2 flex justify-between items-center border-b-[1px] border-green-700">
+    <div
+      data-aos="fade-down"
+      data-aos-duration="1500"
+      className="bg-black rounded-md p-2 flex justify-between items-center border-b-[1px] border-green-700"
+    >
       <div>
         <ul>
           <AddTaskModal id="my_modal_1"></AddTaskModal>

@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
-import { useDrag } from "react-dnd";
 import IconButton from "@mui/material/IconButton";
 import { InfoOutlined } from "@mui/icons-material";
 import DetailsModal from "../../Utils/DetailsModal";
 import { useState } from "react";
+import { useDrag } from "react-dnd";
 
 const ToDoList = ({ toDo, idx, refetch }) => {
   const [open, setOpen] = useState(false);

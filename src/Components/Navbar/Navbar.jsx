@@ -28,11 +28,11 @@ const Navbar = () => {
           </NavLink>
         )}
       </li>
-      <li>
-        <NavLink to="bestForWhom" className={`hover:border-b-2`}>
-          Best for whom
+      {/* <li>
+        <NavLink to="bestFor" className={`hover:border-b-2`}>
+           Best For Whom
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
   return (

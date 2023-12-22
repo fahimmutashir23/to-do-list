@@ -5,12 +5,14 @@ import { useState } from "react";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import useAuth from "../Hooks/useAuth";
+import useTodos from "../Hooks/useTodos";
 
 // eslint-disable-next-line react/prop-types
 const AddTaskModal = ({ id }) => {
   const [loading, setLoading] = useState(false);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+  const [refetch] = useTodos()
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -20,11 +22,13 @@ const AddTaskModal = ({ id }) => {
       title: data.title,
       description: data.description,
       date: data.date,
-      priority: data.priority
+      priority: data.priority,
+      status: "toDo"
     };
     axiosSecure.post("/toDos", toDos).then((res) => {
       if (res.data.insertedId) {
         toast("Task added Successfully");
+        refetch()
       }
     });
     setLoading(false);

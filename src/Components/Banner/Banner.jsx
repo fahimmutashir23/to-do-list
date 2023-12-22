@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div>
       <div className="hero rounded-md">
-      <div className="hero-overlay rounded-md bg-gradient-to-r from-blue-700 to-blue-900 bg-opacity-60"></div>
+      <div className="hero-overlay rounded-md bg-gradient-to-r from-blue-800 to-blue-900 bg-opacity-60"></div>
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src={bannerImg}
