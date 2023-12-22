@@ -28,9 +28,11 @@ const AddTaskModal = ({ id }) => {
     axiosSecure.post("/toDos", toDos).then((res) => {
       if (res.data.insertedId) {
         toast("Task added Successfully");
-        refetch()
       }
     });
+    axiosSecure.post("/previous", toDos)
+    refetch()
+
     setLoading(false);
     reset();
   };

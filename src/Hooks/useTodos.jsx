@@ -7,14 +7,14 @@ const useTodos = () => {
     const axiosSecure = useAxiosSecure();
     const {user} = useAuth()
 
-    const { data: toDos = [], refetch } = useQuery({
+    const { data: toDos = [], refetch: onFetch} = useQuery({
         queryKey: ["toDos"],
         queryFn: async () => {
           const res = await axiosSecure(`/toDos?email=${user?.email}`);
           return res.data;
         },
       });
-    return [toDos, refetch]
+    return [toDos, onFetch]
 };
 
 export default useTodos;

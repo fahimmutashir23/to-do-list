@@ -24,13 +24,14 @@ const DetailsModal = ({ toDoDetails, open, setOpen }) => {
   const handleClose = () => setOpen(false);
   const axiosSecure = useAxiosSecure();
   const [form, setForm] = useState(false);
-  const [refetch] = useTodos()
+  const [onFetch] = useTodos()
 
   const handleDelete = (_id) => {
     axiosSecure.delete(`/deleteTask/${_id}`).then((res) => {
       if (res.data.deletedCount > 0) {
         toast("Delete successfully");
-        refetch()
+
+        onFetch()
       }
     });
   };

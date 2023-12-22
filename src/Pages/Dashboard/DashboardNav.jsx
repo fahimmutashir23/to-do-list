@@ -1,5 +1,6 @@
 import useAuth from "../../Hooks/useAuth";
 import AddTaskModal from "../../Utils/AddTaskModal";
+import AllTaskModal from "../../Utils/AllTaskModal";
 
 const DashboardNav = () => {
   const { user } = useAuth();
@@ -10,13 +11,20 @@ const DashboardNav = () => {
       className="bg-black rounded-md p-2 flex justify-between items-center border-b-[1px] border-green-700"
     >
       <div>
-        <ul>
+        <ul className="flex gap-2">
           <AddTaskModal id="my_modal_1"></AddTaskModal>
+          <AllTaskModal id="my_modal_2"></AllTaskModal>
           <li
             onClick={() => document.getElementById("my_modal_1").showModal()}
             className="bg-blue-500 px-2 rounded-md text-black cursor-pointer hover:bg-green-700"
           >
             Create
+          </li>
+          <li
+            onClick={() => document.getElementById("my_modal_2").showModal()}
+            className="bg-blue-500 px-2 rounded-md text-black cursor-pointer hover:bg-green-700"
+          >
+            Previous Task
           </li>
         </ul>
       </div>

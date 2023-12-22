@@ -94,7 +94,7 @@ const SignIn = () => {
             )}
           </Button>
         </div>
-        <p className="mt-2">Don't have an Account? <Link to="/signIn" className="text-blue-400">Please SignUp</Link></p>
+        <p className="mt-2">Don't have an Account? <Link to="/signUp" className="text-blue-400">Please SignUp</Link></p>
       </form>
     </div>
   );
