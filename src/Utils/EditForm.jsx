@@ -12,7 +12,7 @@ const EditForm = ({details}) => {
   const axiosSecure = useAxiosSecure();
 
   const onSubmit = (data) => {
-    console.log(details._id, data.title);
+   
     setLoading(true);
     const toDos = {
       title: data.title,
@@ -22,7 +22,7 @@ const EditForm = ({details}) => {
     };
     axiosSecure.put(`/updateTask/${details._id}`, toDos)
     .then((res) => {
-        console.log(res.data);
+       
       if (res.data.modifiedCount > 0) {
         toast(`Successfully Updated ${details.title}`);
       }

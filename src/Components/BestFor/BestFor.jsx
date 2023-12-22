@@ -48,13 +48,13 @@ const BestFor = () => {
       <div
       data-aos="fade-down"
       data-aos-duration="1500"
-      className="divider divider-primary text-4xl border-l-2 border-r-2">
+      className="divider divider-primary text-2xl md:text-4xl border-l-2 border-r-2">
         Best For Whom
       </div>
         <div 
         data-aos="zoom-in"
         data-aos-duration="1500"
-        className="grid grid-cols-2 gap-4 my-10">
+        className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-10">
           {cardImg.map((img) => (
             <div key={img.id} className="p-4 bg-black rounded-xl">
               <div className="flex justify-between">

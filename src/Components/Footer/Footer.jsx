@@ -1,6 +1,7 @@
 import { Facebook, GitHub, LinkedIn } from "@mui/icons-material";
 import logo from "../../assets/logo/logo.png";
 import { IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -24,24 +25,27 @@ const Footer = () => {
             <div className="md:flex md:gap-16">
               <ul className="flex flex-col items-center space-y-1">
                 <li className="font-bold mb-1">Quick links</li>
-                <li className="text-sm">Quick links</li>
-                <li className="text-sm">Quick links</li>
+                <Link><li className="text-sm">About Us</li></Link>
+                <Link><li className="text-sm">Contact Us</li></Link>
+                <Link><li className="text-sm">Our Service</li></Link>
               </ul>
               <ul className="flex flex-col items-center space-y-1">
                 <li className="font-bold mb-1">Terms of Service</li>
-                <li className="text-sm">Quick links</li>
-                <li className="text-sm">Quick links</li>
+                <Link><li className="text-sm">Acceptance of Terms</li></Link>
+                <Link><li className="text-sm">Use License</li></Link>
+                <Link><li className="text-sm">Limitations</li></Link>
+                <Link><li className="text-sm">Governing Law</li></Link>
               </ul>
             </div>
             <div className="flex justify-end gap-4 mt-4">
               <IconButton color="secondary">
-                <Facebook fontSize="large" />
+                <a href="https://www.facebook.com/fahim.mmuntasir/"><Facebook fontSize="large" /></a>
               </IconButton>
               <IconButton color="secondary">
-                <LinkedIn fontSize="large" />
+                <a href="https://www.linkedin.com/in/md-fahim-muntashir-22408b2a1/"><LinkedIn fontSize="large" /></a>
               </IconButton>
               <IconButton color="secondary">
-                <GitHub fontSize="large" />
+                <a href="https://github.com/fahimmutashir23"><GitHub fontSize="large" /></a>
               </IconButton>
             </div>
           </div>

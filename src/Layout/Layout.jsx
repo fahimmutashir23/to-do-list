@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <div>
       <Navbar />
-      <div className="max-w-6xl mx-auto min-h-[calc(100vh-272px)]">
+      <div className="max-w-6xl mx-auto min-h-[calc(100vh-272px)] overflow-hidden">
         <Outlet />
       </div>
       <Footer></Footer>

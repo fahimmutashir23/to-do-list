@@ -28,13 +28,13 @@ const AddTaskModal = ({ id }) => {
     axiosSecure.post("/toDos", toDos).then((res) => {
       if (res.data.insertedId) {
         toast("Task added Successfully");
+        setLoading(false);
+        reset();
       }
     });
     axiosSecure.post("/previous", toDos)
     refetch()
 
-    setLoading(false);
-    reset();
   };
 
   return (
@@ -48,7 +48,7 @@ const AddTaskModal = ({ id }) => {
           </form>
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <h1 className="text-center text-2xl font-semibold mb-2">
+              <h1 className="text-center md:text-2xl font-semibold mb-2">
                 Add Task
               </h1>
               <div className="relative z-0 w-full mb-5 group">

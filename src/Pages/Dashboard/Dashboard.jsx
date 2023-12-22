@@ -30,7 +30,7 @@ const Dashboard = () => {
   return (
     <div>
       <DashboardNav></DashboardNav>
-      <div className="flex justify-between gap-2 mt-2">
+      <div className="md:flex justify-between gap-2 mt-2">
         <div
         data-aos = "fade-right"
         data-aos-duration="1500"

@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
 import useAuth from "../../Hooks/useAuth";
+import AddTaskModal from "../../Utils/AddTaskModal";
+import AllTaskModal from "../../Utils/AllTaskModal";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
@@ -28,11 +30,24 @@ const Navbar = () => {
           </NavLink>
         )}
       </li>
-      {/* <li>
-        <NavLink to="bestFor" className={`hover:border-b-2`}>
-           Best For Whom
-        </NavLink>
-      </li> */}
+      <div className="md:hidden">
+        <ul className="space-y-2">
+          <AddTaskModal id="my_modal_1"></AddTaskModal>
+          <AllTaskModal id="my_modal_2"></AllTaskModal>
+          <li
+            onClick={() => document.getElementById("my_modal_1").showModal()}
+            className="bg-blue-500 px-2 rounded-md text-black cursor-pointer hover:bg-green-700"
+          >
+            Create
+          </li>
+          <li
+            onClick={() => document.getElementById("my_modal_2").showModal()}
+            className="bg-blue-500 px-2 rounded-md text-black cursor-pointer hover:bg-green-700"
+          >
+            Previous Task
+          </li>
+        </ul>
+      </div>
     </>
   );
   return (

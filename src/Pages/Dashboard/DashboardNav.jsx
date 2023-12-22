@@ -1,3 +1,4 @@
+
 import useAuth from "../../Hooks/useAuth";
 import AddTaskModal from "../../Utils/AddTaskModal";
 import AllTaskModal from "../../Utils/AllTaskModal";
@@ -10,7 +11,7 @@ const DashboardNav = () => {
       data-aos-duration="1500"
       className="bg-black rounded-md p-2 flex justify-between items-center border-b-[1px] border-green-700"
     >
-      <div>
+      <div className="hidden md:flex">
         <ul className="flex gap-2">
           <AddTaskModal id="my_modal_1"></AddTaskModal>
           <AllTaskModal id="my_modal_2"></AllTaskModal>
@@ -29,7 +30,7 @@ const DashboardNav = () => {
         </ul>
       </div>
       <div>
-        <h1 className="text-3xl text text-blue-500 font-semibold">Dashboard</h1>
+        <h1 className="text-xl md:text-3xl text text-blue-500 font-semibold">Dashboard</h1>
       </div>
       <div>
         <img
