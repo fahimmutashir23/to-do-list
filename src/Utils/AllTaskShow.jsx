@@ -1,19 +1,18 @@
 /* eslint-disable react/prop-types */
 
-import "react-tooltip/dist/react-tooltip.css";
-import { Tooltip } from "react-tooltip";
 
 const AllTaskShow = ({ toDo, idx }) => {
   return (
     <>
       <tr>
         <td>{idx + 1}</td>
-        <a data-tooltip-id="my-tooltip" data-tooltip-content={toDo.description}>
-          <td>{toDo.title}</td>
-        </a>
+        <td>
+          <div className="tooltip" data-tip={toDo.description}>
+            <button>{toDo.title}</button>
+          </div>
+        </td>
         <td>{toDo.date}</td>
       </tr>
-      <Tooltip id="my-tooltip"></Tooltip>
     </>
   );
 };

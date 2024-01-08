@@ -29,7 +29,7 @@ const Dashboard = () => {
   
   return (
     <div>
-      <DashboardNav></DashboardNav>
+      <DashboardNav refetch={refetch}></DashboardNav>
       <div className="md:flex justify-between gap-2 mt-2">
         <div
         data-aos = "fade-right"
@@ -41,7 +41,7 @@ const Dashboard = () => {
             <ul className="space-y-2">
               {toDos.map((toDo, idx) => (
                 toDo.status === "toDo" &&
-                <ToDoList key={idx} toDo={toDo} idx={idx}></ToDoList>
+                <ToDoList refetch={refetch} key={idx} toDo={toDo} idx={idx}></ToDoList>
               ))}
             </ul>
           </div>

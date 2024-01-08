@@ -5,14 +5,12 @@ import { useState } from "react";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import useAuth from "../Hooks/useAuth";
-import useTodos from "../Hooks/useTodos";
 
 // eslint-disable-next-line react/prop-types
 const AddTaskModal = ({ id }) => {
   const [loading, setLoading] = useState(false);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  const [refetch] = useTodos()
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -33,10 +31,7 @@ const AddTaskModal = ({ id }) => {
       }
     });
     axiosSecure.post("/previous", toDos)
-    refetch()
-
   };
-
   return (
     <div>
       <dialog id={id} className="modal">

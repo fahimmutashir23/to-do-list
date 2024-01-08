@@ -36,7 +36,7 @@ const OnGoing = () => {
           {toDos?.map(
             (toDo, idx) =>
               toDo.status === "onGoing" && (
-                <ToDoList key={idx} toDo={toDo} idx={idx}></ToDoList>
+                <ToDoList key={idx} toDo={toDo} idx={idx} refetch={refetch}></ToDoList>
               )
           )}
         </ul>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import PropTypes from "prop-types";
 import { Box, Modal } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -7,30 +8,28 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import EditForm from "./EditForm";
-import useTodos from "../Hooks/useTodos";
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   bgcolor: "black",
+  width: 400,
   border: "1px solid white",
   boxShadow: 24,
   p: 2,
 };
 
-const DetailsModal = ({ toDoDetails, open, setOpen }) => {
+const DetailsModal = ({ toDoDetails, open, setOpen, refetch }) => {
   const handleClose = () => setOpen(false);
   const axiosSecure = useAxiosSecure();
   const [form, setForm] = useState(false);
-  const [onFetch] = useTodos()
 
   const handleDelete = (_id) => {
     axiosSecure.delete(`/deleteTask/${_id}`).then((res) => {
       if (res.data.deletedCount > 0) {
         toast("Delete successfully");
-
-        onFetch()
+        refetch()
       }
     });
   };

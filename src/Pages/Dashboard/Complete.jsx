@@ -35,7 +35,7 @@ const Complete = () => {
             <ul className="space-y-2">
               {toDos?.map((toDo, idx) => (
                 toDo.status === "complete" &&
-                <ToDoList key={idx} toDo={toDo} idx={idx}></ToDoList>
+                <ToDoList key={idx} toDo={toDo} idx={idx} refetch={refetch}></ToDoList>
               ))}
             </ul>
           </div>

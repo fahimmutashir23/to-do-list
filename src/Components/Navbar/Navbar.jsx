@@ -30,10 +30,9 @@ const Navbar = () => {
           </NavLink>
         )}
       </li>
-      <div className="md:hidden">
-        <ul className="space-y-2">
-          <AddTaskModal id="my_modal_1"></AddTaskModal>
-          <AllTaskModal id="my_modal_2"></AllTaskModal>
+      <div className="">
+      
+        <ul className="space-y-2 md:hidden">
           <li
             onClick={() => document.getElementById("my_modal_1").showModal()}
             className="bg-blue-500 px-2 rounded-md text-black cursor-pointer hover:bg-green-700"
@@ -55,7 +54,7 @@ const Navbar = () => {
       <div className="navbar max-w-6xl mx-auto justify-between">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -81,14 +80,22 @@ const Navbar = () => {
           <Link to="/" className="btn hidden md:flex btn-ghost text-xl">
             <img src={logo} alt="Logo" className="h-12 w-12" />
           </Link>
-          {user? <p className="hidden text-blue-300 md:flex text-xl ml-3">
-            Welcome to {user?.displayName} !
-          </p> : " "}
+          {user ? (
+            <p className="hidden text-blue-300 md:flex text-xl ml-3">
+              Welcome to {user?.displayName} !
+            </p>
+          ) : (
+            " "
+          )}
         </div>
         <div className="navbar-center">
-          {user ? <p className="text-xs md:text-xl md:hidden">
-            Welcome to {user?.displayName} !
-          </p> : " "}
+          {user ? (
+            <p className="text-xs md:text-xl md:hidden">
+              Welcome to {user?.displayName} !
+            </p>
+          ) : (
+            " "
+          )}
         </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="flex gap-6 px-1">{navItem}</ul>
@@ -97,6 +104,8 @@ const Navbar = () => {
           <img src={logo} alt="Logo" className="h-8 w-8" />
         </Link>
       </div>
+      <AddTaskModal id="my_modal_1"></AddTaskModal>
+      <AllTaskModal id="my_modal_2"></AllTaskModal>
     </div>
   );
 };
